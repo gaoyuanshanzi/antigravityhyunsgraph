@@ -107,7 +107,7 @@ export const ChartPreviewCanvas: React.FC = () => {
           </div>
 
           {/* Chart Rendering Canvas Area */}
-          <div className="w-full py-2 min-h-[360px] flex items-center justify-center">
+          <div className="w-full py-2 min-h-[360px]">
             <ChartRenderer />
           </div>
 

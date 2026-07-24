@@ -28,15 +28,24 @@ import { useChartStore } from '../../../store/useChartStore';
 import { D3HorizontalBarChart } from './D3HorizontalBarChart';
 
 export const ChartRenderer: React.FC = () => {
-  const { chartType, data, xAxisKey, seriesKeys, options } = useChartStore();
+  const { chartType, chartData: data, xAxisKey, seriesKeys, options } = useChartStore();
   const colors = options.customColors && options.customColors.length > 0
     ? options.customColors
     : ['#2563eb', '#38bdf8', '#34d399', '#f59e0b', '#f43f5e', '#8b5cf6'];
 
   if (!data || data.length === 0) {
     return (
-      <div className="h-64 flex items-center justify-center text-slate-400 text-sm">
-        표시할 데이터가 없습니다. Step 1에서 데이터를 입력해주세요.
+      <div className="h-64 flex flex-col items-center justify-center gap-3 text-slate-400 text-sm">
+        <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M9 9h6M9 12h6M9 15h4"/>
+          </svg>
+        </div>
+        <div className="text-center">
+          <p className="font-medium text-slate-500">표시할 데이터가 없습니다</p>
+          <p className="text-xs mt-0.5">Step 1에서 데이터를 입력하거나 샘플 데이터를 불러오세요</p>
+        </div>
       </div>
     );
   }
