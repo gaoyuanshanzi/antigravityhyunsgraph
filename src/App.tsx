@@ -1,6 +1,7 @@
 import React from 'react';
 import { useChartStore } from './store/useChartStore';
 import { Navbar } from './components/layout/Navbar';
+import { LoginGate } from './components/layout/LoginGate';
 import { DataInputPanel } from './components/step1/DataInputPanel';
 import { ControlPanel } from './components/step2/ControlPanel';
 import { ChartPreviewCanvas } from './components/step2/ChartPreviewCanvas';
@@ -9,6 +10,10 @@ import { Sparkles, ArrowRight, ShieldAlert } from 'lucide-react';
 
 export function App() {
   const { step, setStep, auth } = useChartStore();
+
+  if (!auth.isAuthenticated) {
+    return <LoginGate />;
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-blue-500 selection:text-white">

@@ -9,7 +9,7 @@ interface AdminAuthModalProps {
 
 export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({ isOpen, onClose }) => {
   const { login } = useChartStore();
-  const [username, setUsername] = useState('admin');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
 
@@ -71,7 +71,7 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({ isOpen, onClose 
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-sm transition-all"
-              placeholder="admin"
+              placeholder="아이디 입력"
               required
             />
           </div>
@@ -86,15 +86,11 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({ isOpen, onClose 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-sm transition-all"
-                placeholder="비밀번호 입력 (예: 123jesus)"
+                placeholder="비밀번호 입력"
                 required
               />
               <Lock className="w-4 h-4 text-slate-400 absolute right-3.5 top-3" />
             </div>
-          </div>
-
-          <div className="p-3 bg-blue-50/60 dark:bg-blue-950/20 rounded-xl border border-blue-100 dark:border-blue-900/30 text-xs text-blue-800 dark:text-blue-300">
-            💡 테스트 관리자 정보: ID: <code className="bg-blue-100 dark:bg-blue-900 px-1 py-0.5 rounded font-mono text-blue-900 dark:text-blue-200">admin</code> / PW: <code className="bg-blue-100 dark:bg-blue-900 px-1 py-0.5 rounded font-mono text-blue-900 dark:text-blue-200">123jesus</code>
           </div>
 
           <div className="pt-2 flex items-center justify-end gap-2">
